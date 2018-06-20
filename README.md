@@ -3,7 +3,7 @@ This application was generated using JHipster 5.0.0, you can find documentation 
 
 ## Domain
 
-![Money Domain](./jdl/jhipster-jdl.png)
+![Money Domain](/src/main/resources/jdl/jhipster-jdl.png)
 Format: ![Alt Text](url)
 
 ## Development
