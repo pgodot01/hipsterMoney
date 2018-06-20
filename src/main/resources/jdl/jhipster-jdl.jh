@@ -1,0 +1,69 @@
+entity Bank {
+	bankName String,
+    bankAccountManager String,
+    bankTel String,
+    bankEnable Boolean
+}
+
+entity Account {
+	accountName String,
+    initialAmount BigDecimal
+}
+
+entity Devise {
+	deviseCode String,
+    deviseName String,
+}
+
+entity ChangeRate {
+ 	changeRate BigDecimal,
+    changeDate LocalDate
+}
+
+entity Operation {
+	operationDate LocalDate,
+    operationAmount BigDecimal,
+    operationStatus OperationStatus,
+    
+}
+
+entity Category {
+	categoryName String,
+    
+}
+
+entity SubCategory {
+	subCategoryName String,
+}
+
+enum OperationStatus {
+    NEW, MARKED, POINTED, ARCHIVED, DELETED
+}
+
+relationship OneToOne {
+	Account{devise} to Devise,
+    Devise{rate} to ChangeRate,
+    ChangeRate{rate} to Devise,
+    Category{subCategory} to SubCategory,
+    Operation{category} to Category,
+    Operation{subCategory} to SubCategory
+    
+}
+
+relationship OneToMany {
+	Bank{account} to Account,
+    Account{operation} to Operation
+}
+
+// Set pagination options
+paginate Operation with infinite-scroll
+paginate Bank, Account with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

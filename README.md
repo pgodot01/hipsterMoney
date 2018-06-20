@@ -1,6 +1,11 @@
 # realestate
 This application was generated using JHipster 5.0.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.0.0](https://www.jhipster.tech/documentation-archive/v5.0.0).
 
+## Domain
+
+![Money Domain](./jdl/jhipster-jdl.png)
+Format: ![Alt Text](url)
+
 ## Development
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
